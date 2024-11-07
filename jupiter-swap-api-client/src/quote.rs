@@ -67,14 +67,14 @@ pub struct QuoteRequest {
     /// In this case the slippage is on the input token.
     pub swap_mode: Option<SwapMode>,
     /// Allowed slippage in basis points
-    pub slippage_bps: u16,
+    pub slippage_bps: Option<u16>,
     /// Default is false.
     /// By setting this to true, our API will suggest smart slippage info that you can use.
     /// slippageBps is what we suggest you to use. Additionally, you should check out max_auto_slippage_bps and auto_slippage_collision_usd_value.
     pub auto_slippage: Option<bool>,
     /// The max amount of slippage in basis points that you are willing to accept for auto slippage.
     pub max_auto_slippage_bps: Option<u16>,
-    pub compute_auto_slippage: bool,
+    pub compute_auto_slippage: Option<bool>,
     /// The max amount of USD value that you are willing to accept for auto slippage.
     pub auto_slippage_collision_usd_value: Option<u32>,
     /// Quote with a greater amount to find the route to minimize slippage
