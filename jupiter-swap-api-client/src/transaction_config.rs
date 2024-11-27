@@ -26,6 +26,8 @@ pub enum PrioritizationFeeLamports {
     AutoMultiplier(u64),
     /// A tip instruction will be included to Jito and no priority fee will be set.
     JitoTipLamports(u64),
+    /// Use Helius's priority fee calculator, enumeration should correspond to the fee level, see Helius SDK.
+    HeliusPriorityFeeLevel(u8)
 }
 
 fn auto<'de, D>(deserializer: D) -> Result<(), D::Error>
