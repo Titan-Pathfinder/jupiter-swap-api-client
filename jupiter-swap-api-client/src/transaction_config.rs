@@ -12,6 +12,8 @@ pub enum ComputeUnitPriceMicroLamports {
     MicroLamports(u64),
     #[serde(deserialize_with = "auto")]
     Auto,
+    // Maximum value user is willing to pay for total fee.
+    MaxTotalLamports(u64),
 }
 
 #[derive(Deserialize, Serialize, Debug, PartialEq, Clone)]
@@ -27,7 +29,9 @@ pub enum PrioritizationFeeLamports {
     /// A tip instruction will be included to Jito and no priority fee will be set.
     JitoTipLamports(u64),
     /// Use Helius's priority fee calculator, enumeration should correspond to the fee level, see Helius SDK.
-    HeliusPriorityFeeLevel(u8)
+    HeliusPriorityFeeLevel(u8),
+    /// Use Triton's priority fee calculator, value should be percentile * 100, example (50th percentile is 5000).
+    TritonPriorityFeeLevel(u16)
 }
 
 fn auto<'de, D>(deserializer: D) -> Result<(), D::Error>
