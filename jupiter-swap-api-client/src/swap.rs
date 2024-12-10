@@ -47,6 +47,13 @@ pub struct UiSimulationError {
     error: String,
 }
 
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "camelCase")]
+pub struct SimulationResult {
+    compute_units_consumed: u64,
+    final_token_balance: u64,
+}
+
 #[derive(Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct SwapResponse {
@@ -58,6 +65,7 @@ pub struct SwapResponse {
     pub prioritization_type: Option<PrioritizationType>,
     pub dynamic_slippage_report: Option<DynamicSlippageReport>,
     pub simulation_error: Option<UiSimulationError>,
+    pub simulation_result: Option<SimulationResult>,
 }
 
 pub mod base64_serialize_deserialize {
