@@ -50,8 +50,8 @@ pub struct UiSimulationError {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct SimulationResult {
-    compute_units_consumed: u64,
-    final_token_balance: u64,
+    pub compute_units_consumed: u64,
+    pub final_token_balance: u64,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
