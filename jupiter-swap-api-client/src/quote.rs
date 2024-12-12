@@ -100,6 +100,8 @@ pub struct QuoteRequest {
     pub quote_args: Option<HashMap<String, String>>,
     // enable only full liquid markets as intermediate tokens
     pub prefer_liquid_dexes: Option<bool>,
+    // maximum number of pools to use in the route
+    pub max_pools: Option<usize>,
 }
 
 /// Comma delimited list of dex labels
