@@ -33,4 +33,5 @@ pub struct SwapInfo {
     pub fee_amount: u64,
     #[serde(with = "field_as_string")]
     pub fee_mint: Pubkey,
+    pub context_slot: Option<u64>,
 }
